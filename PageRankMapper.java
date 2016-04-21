@@ -143,7 +143,7 @@ public class PageRankMapper extends CollectiveMapper<String, String, LongWritabl
 		    	// TODO - Write Code
 				// Add pr to the page rank of all target URLs.
 		    	for (long cur : targetUrls) {
-		    		globalPRTable.addKeyVal((int) cur, pr)
+		    		globalPRTable.addKeyVal((int) cur, pr);
 		    	}
 		    }
 		}
