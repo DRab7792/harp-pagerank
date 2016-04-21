@@ -132,14 +132,19 @@ public class PageRankMapper extends CollectiveMapper<String, String, LongWritabl
 				// Note. The addKeyVal(key, val) method in globalPRTable will
 				// automatically sum values if the key exists. If the key does
 				// NOT exist then a new entry will be made.
-
+				for (int cur = 0; cur < numUrls; cur++){
+					globalPRTable.addKeyVal(cur, pr);	
+				}
+		    	
 		    	
 		    }else{
 		    	int numOfOutLinks = targetUrls.size();
 		    	double pr = localPRTable.getVal(sourceUrl) / numOfOutLinks;
 		    	// TODO - Write Code
 				// Add pr to the page rank of all target URLs.
-		    	
+		    	for (long cur : targetUrls) {
+		    		globalPRTable.addKeyVal((int) cur, pr)
+		    	}
 		    }
 		}
 	}
